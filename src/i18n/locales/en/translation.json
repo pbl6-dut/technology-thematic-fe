@@ -1,0 +1,93 @@
+{
+  "validation": {
+    "userName": {
+      "required": "Email is required",
+      "invalid": "Email is invalid"
+    },
+    "password": {
+      "required": "Password is required",
+      "notMatch": "Confirm Password must be matched with Password",
+      "min": "Password must contain at least 6 characters"
+    },
+    "fullName": {
+      "required": "Full Name is required"
+    },
+    "firstName": {
+      "required": "First Name is required"
+    },
+    "lastName": {
+      "required": "Last Name is required"
+    },
+    "confirmPassword": {
+      "required": "Password Confirmation is required"
+    },
+    "verifyCode": {
+      "required": "Verify Code is required",
+      "max": "Verify Code must contain {{length}} characters"
+    },
+    "name": {
+      "required": "Name is required"
+    },
+    "address": {
+      "required": "Address is required"
+    },
+    "phoneNumber": {
+      "required": "Phone Number is required",
+      "invalid": "Phone Number is invalid"
+    },
+    "uploadCourse": {
+      "title": "Title is required",
+      "description": "Description is required",
+      "category": "Category is required",
+      "thumbnail": "Image Thumbnail is required",
+      "price": {
+        "invalid": "Price must be a number",
+        "min": "Price must be greater than 0"
+      },
+      "lecture": {
+        "video": "Lecture Video is required"
+      }
+    }
+  },
+  "placeholder": {
+    "register": {
+      "fullName": "Enter your full name here",
+      "email": "Enter your email here",
+      "password": "Enter your password here",
+      "confirmPassword": "Enter your password again"
+    }
+  },
+  "label": {
+    "register": {
+      "fullName": "Full Name",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Password Confirmation"
+    }
+  },
+  "toast": {
+    "success": {
+      "register": "Register successfully. Please check mail to active account.",
+      "login": "Welcome Back!",
+      "createCourse": "Create course successfully. Please create your course content.",
+      "updateCourse": "Update course successfully.",
+      "createSection": "Create section successfully. Please create your lectures.",
+      "createLecture": "Create lecture successfully.",
+      "updateLecture": "Update lecture successfully."
+    },
+    "error": {
+      "register": "Register failed. Please try again.",
+      "login": "Login Failed. Please try again.",
+      "refreshTokenFailed": "Something went wrong! Please login again.",
+      "uploadFile": "Upload failed. Please try again.",
+      "createCourse": "Create course failed. Please try again.",
+      "updateCourse": "Update course failed. Please try again.",
+      "createSection": "Create section failed. Please try again.",
+      "wrongFileType": "File for this field should be {{fileType}}.",
+      "createLecture": "Create lecture failed. Please try again.",
+      "updateLecture": "Update lecture failed. Please try again."
+    }
+  },
+  "courseContent": "Course Content",
+  "comments": "Comments"
+}
