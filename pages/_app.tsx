@@ -9,7 +9,6 @@ import i18next from "src/i18n/i18n";
 import DefaultLayout from "src/layouts/DefaultLayout";
 import { ThemeProvider } from "styled-components";
 import theme from "styles/theme";
-import SockJS from "sockjs-client";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { ToastContainer } from "react-toastify";
