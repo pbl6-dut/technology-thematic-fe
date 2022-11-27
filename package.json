@@ -1,7 +1,4 @@
 {
-  "name": "pbl6",
-  "version": "1.0.0",
-  "description": "PBL6-DUT",
   "private": true,
   "scripts": {
     "dev": "next dev",

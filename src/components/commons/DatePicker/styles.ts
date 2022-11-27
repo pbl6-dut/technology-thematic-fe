@@ -1,4 +1,4 @@
-import { Select } from "antd";
+import { DatePicker } from "antd";
 import styled, { css } from "styled-components";
 import Box from "../Box";
 
@@ -6,7 +6,7 @@ interface WrapperProps {
   width?: string;
 }
 
-interface SelectWrapperProps {
+interface DatePickerWrapperProps {
   disabled?: boolean;
   isError?: boolean;
 }
@@ -30,7 +30,7 @@ export const Label = styled(Box)`
   z-index: 2;
 `;
 
-export const SelectWrapper = styled.div<SelectWrapperProps>`
+export const DatePickerWrapper = styled.div<DatePickerWrapperProps>`
   border-width: 2px;
   border-style: solid;
   border-color: ${({ isError, theme }) =>
@@ -57,29 +57,25 @@ export const SelectWrapper = styled.div<SelectWrapperProps>`
     `};
 `;
 
-export const StyledSelect = styled(Select)`
-  padding: 10px 16px;
+export const StyledDatePicker = styled(DatePicker)`
+  padding: 14px 16px;
+  width: 100%;
+  border: 0;
+  outline: none;
+  box-shadow: unset;
 
-  .ant-select-selector {
-    border: unset !important;
-    box-shadow: unset !important;
-    outline: none;
-    height: unset !important;
+  .ant-picker-content
+    .ant-picker-cell-in-view.ant-picker-cell-selected
+    .ant-picker-cell-inner {
+    &::before {
+      border-color: ${({ theme }) => theme.colors.primary} !important;
+    }
+    background: ${({ theme }) => theme.colors.primary} !important;
   }
 
-  .ant-select-selection-overflow-item .ant-select-selection-item {
-    color: ${({ theme }) => theme.colors.textLight};
-    font-weight: ${({ theme }) => theme.fontWeights.regular};
-    font-size: ${({ theme }) => theme.fontSizes.sm};
-    line-height: 1;
-  }
-
-  .ant-select-selection-item {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-  }
-
-  &.ant-select-multiple .ant-select-selection-item-content {
-    line-height: 1.5 !important;
+  .ant-picker-cell-in-view.ant-picker-cell-today .ant-picker-cell-inner {
+    &::before {
+      border-color: ${({ theme }) => theme.colors.primary} !important;
+    }
   }
 `;

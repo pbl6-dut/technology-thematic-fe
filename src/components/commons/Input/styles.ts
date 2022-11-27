@@ -45,7 +45,6 @@ export const InputWrapper = styled.div<InputWrapperProps>`
   ${({ disabled }) =>
     disabled &&
     css`
-      background-color: ${({ theme }) => theme.colors.lightGray};
       border-color: ${({ theme }) => theme.colors.lightGray} !important;
       box-shadow: unset !important;
       cursor: no-drop;
@@ -63,8 +62,15 @@ export const InputWrapper = styled.div<InputWrapperProps>`
     background-color: transparent !important;
     border: 0;
     &:focus {
-      color: ${({ theme }) => theme.colors.text};
+      color: ${({ theme }) => theme.colors.text} !important;
       outline: none;
+
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        -webkit-text-fill-color: ${({ theme }) => theme.colors.text};
+      }
     }
 
     // Remove background color of autocomplete
@@ -72,7 +78,8 @@ export const InputWrapper = styled.div<InputWrapperProps>`
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus,
     &:-webkit-autofill:active {
-      transition: background-color 5000000s ease-in-out 0s;
+      -webkit-text-fill-color: ${({ theme }) => theme.colors.textLight};
+      transition: background-color 50000s ease-in-out 0s;
     }
 
     &::placeholder {
