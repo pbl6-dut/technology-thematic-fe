@@ -19,12 +19,14 @@ export { default as useGetCommentsOfVideo } from "./Course/useGetCommentsOfVideo
 export { default as useAccessCourseByLectureId } from "./Course/useAccessCourseByLectureId";
 export * from "./Course/useGetLecturesBySection";
 export { default as useGetHashTags } from "./Course/useGetHashTags";
+export { default as useSearchCourses } from "./Course/useSearchCourses";
 
 export { default as useGetNotifications } from "./User/useGetNotifications";
 export { default as useMarkAllReadNotifications } from "./User/useMarkAllReadNotifications";
 export { default as useMarkReadNotification } from "./User/useMarkReadNotification";
 export { default as useUpdateProfileUser } from "./User/useUpdateProfileUser";
 export { default as useChangePassword } from "./User/useChangePassword";
+export { default as useUploadAvatar } from "./User/useUploadAvatar";
 
 export { default as useRealTimeServices } from "./RealTime/useRealTimeServices";
 
