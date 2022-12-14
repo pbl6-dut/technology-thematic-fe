@@ -5,7 +5,7 @@ export interface CourseBase {
   thumbnailUrl: string;
   userId: string;
   categoryTopicId: string;
-  hashTag?: string[];
+  hashtags?: string[];
 }
 
 export interface SectionBase {
@@ -31,6 +31,8 @@ export interface LectureBase {
 export interface CourseType extends CourseBase {
   id: string;
   isActived: boolean;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface LectureType extends LectureBase {
@@ -46,4 +48,11 @@ export interface SectionType extends SectionBase {
 
 export interface CategoryType extends CategoryBase {
   id: string;
+}
+
+export interface HashTagType {
+  id: string;
+  name: string;
+  createdAt: string;
+  updatedAt: string;
 }

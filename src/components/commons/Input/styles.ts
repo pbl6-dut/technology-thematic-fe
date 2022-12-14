@@ -29,6 +29,10 @@ export const Label = styled.span`
 `;
 
 export const InputWrapper = styled.div<InputWrapperProps>`
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+
   border-width: 2px;
   border-style: solid;
   border-color: ${({ isError, theme }) =>
@@ -45,7 +49,6 @@ export const InputWrapper = styled.div<InputWrapperProps>`
   ${({ disabled }) =>
     disabled &&
     css`
-      background-color: ${({ theme }) => theme.colors.lightGray};
       border-color: ${({ theme }) => theme.colors.lightGray} !important;
       box-shadow: unset !important;
       cursor: no-drop;
@@ -55,7 +58,7 @@ export const InputWrapper = styled.div<InputWrapperProps>`
     `};
   input {
     width: 100%;
-    padding: 14px 16px;
+    padding: 14px 10px;
     color: ${({ theme }) => theme.colors.textLight};
     font-weight: ${({ theme }) => theme.fontWeights.regular};
     font-size: ${({ theme }) => theme.fontSizes.sm};
@@ -63,8 +66,15 @@ export const InputWrapper = styled.div<InputWrapperProps>`
     background-color: transparent !important;
     border: 0;
     &:focus {
-      color: ${({ theme }) => theme.colors.text};
+      color: ${({ theme }) => theme.colors.text} !important;
       outline: none;
+
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        -webkit-text-fill-color: ${({ theme }) => theme.colors.text};
+      }
     }
 
     // Remove background color of autocomplete
@@ -72,7 +82,8 @@ export const InputWrapper = styled.div<InputWrapperProps>`
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus,
     &:-webkit-autofill:active {
-      transition: background-color 5000000s ease-in-out 0s;
+      -webkit-text-fill-color: ${({ theme }) => theme.colors.textLight};
+      transition: background-color 50000s ease-in-out 0s;
     }
 
     &::placeholder {

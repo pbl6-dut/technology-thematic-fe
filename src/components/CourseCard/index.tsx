@@ -16,29 +16,51 @@ import { Path } from "src/utils/Path";
 import { CourseType } from "src/data-model/CourseTypes";
 import useGetCategory from "src/hooks/apis/Course/useGetCategory";
 import Box from "../commons/Box";
+import { UserType } from "src/data-model/UserTypes";
+import DateTimeUtils from "src/utils/DateTimeUtils";
+import ImageComponent from "../commons/Image";
+import { useRouter } from "next/router";
 
 interface Props {
   course: CourseType;
+  user?: UserType;
 }
 
-const CourseCard = ({ course }: Props) => {
+const CourseCard = ({ course, user }: Props) => {
+  const router = useRouter();
   const { data } = useGetCategory();
+
+  const redirectToProfilePage = () => {
+    router.push(`${Path.profile}/${course.userId}`);
+  };
 
   return (
     <VideoCardWrapper>
       <Content>
         <Author>
-          <div className="author-image relative w-12 h-12 rounded-full mr-4">
-            <Image
-              layout={"fill"}
-              src={"/assets/author-image-example.png"}
+          <div
+            onClick={() => redirectToProfilePage()}
+            className="author-image relative w-12 h-12 rounded-full mr-4 overflow-hidden cursor-pointer"
+          >
+            <ImageComponent
+              src={user?.avatarUrl ?? ""}
+              fallBack="/assets/ava.png"
               objectFit="cover"
               alt="author avatar"
             />
           </div>
           <div>
-            <p className="name">Ahmad Deedat</p>
-            <span className="time-stamp">3h ago</span>
+            <p
+              onClick={() => redirectToProfilePage()}
+              className="name cursor-pointer"
+            >
+              {user?.fullName}
+            </p>
+            <span className="time-stamp">
+              {DateTimeUtils.convertToTimeAgo(
+                new Date(course.updatedAt).getTime()
+              )}
+            </span>
           </div>
         </Author>
         <Thumbnail>

@@ -2,6 +2,7 @@ import {
   CategoryType,
   CourseBase,
   CourseType,
+  HashTagType,
   LectureBase,
   LectureType,
   SectionBase,
@@ -17,6 +18,14 @@ export const courseService = {
   getCourses: (): Promise<CustomAxiosResponseWithPagination<CourseType[]>> =>
     axiosClient.get("/courses"),
 
+  searchCourses: (
+    queryParams: any
+  ): Promise<CustomAxiosResponseWithPagination<CourseType[]>> => {
+    console.log("query params: ", queryParams);
+    return axiosClient.get("/courses/search", {
+      params: queryParams,
+    });
+  },
   getCourseById: (courseId: string): Promise<CustomAxiosResponse<CourseType>> =>
     axiosClient.get(`/courses/${courseId}`),
 
@@ -81,5 +90,9 @@ export const courseService = {
   ): Promise<CustomAxiosResponse<LectureType>> => {
     const { id, ...restLectureData } = lectureData;
     return axiosClient.put(`/videos/${id}`, restLectureData);
+  },
+
+  getHashTags: (): Promise<CustomAxiosResponse<HashTagType[]>> => {
+    return axiosClient.get("/hashtags");
   },
 };
